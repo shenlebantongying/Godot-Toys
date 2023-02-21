@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=3 uid="uid://bldl3hu5pvqsu"]
+
+[ext_resource type="Script" path="res://wall.gd" id="1_h5yt3"]
+[ext_resource type="Script" path="res://main.gd" id="1_m4l5o"]
+[ext_resource type="Texture2D" uid="uid://kjoxq5nm0cfp" path="res://icon.svg" id="1_t55sn"]
+[ext_resource type="Script" path="res://ball.gd" id="2_tgybf"]
+[ext_resource type="Script" path="res://ceiling.gd" id="4_7spd2"]
+[ext_resource type="Script" path="res://floor.gd" id="5_l1lhq"]
+[ext_resource type="Script" path="res://paddle.gd" id="5_tdoey"]
+[ext_resource type="Script" path="res://score.gd" id="6_sjji2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgrb1"]
+size = Vector2(14, 303.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irqmu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4eof"]
+size = Vector2(315, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gamba"]
+size = Vector2(64, 8)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_m4l5o")
+
+[node name="wall" type="Area2D" parent="."]
+script = ExtResource("1_h5yt3")
+
+[node name="leftwall" type="CollisionShape2D" parent="wall"]
+position = Vector2(-8, 152)
+shape = SubResource("RectangleShape2D_fgrb1")
+
+[node name="rightwall" type="CollisionShape2D" parent="wall"]
+position = Vector2(304, 152)
+shape = SubResource("RectangleShape2D_fgrb1")
+
+[node name="ball" type="CharacterBody2D" parent="."]
+position = Vector2(50, 50)
+script = ExtResource("2_tgybf")
+
+[node name="ballShape" type="CollisionShape2D" parent="ball"]
+shape = SubResource("RectangleShape2D_irqmu")
+
+[node name="Icon" type="Sprite2D" parent="ball/ballShape"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_t55sn")
+
+[node name="ceiling" type="Area2D" parent="."]
+script = ExtResource("4_7spd2")
+
+[node name="celling" type="CollisionShape2D" parent="ceiling"]
+position = Vector2(152, -9)
+shape = SubResource("RectangleShape2D_c4eof")
+
+[node name="floor" type="Area2D" parent="."]
+script = ExtResource("5_l1lhq")
+
+[node name="floor" type="CollisionShape2D" parent="floor"]
+position = Vector2(152, 310)
+shape = SubResource("RectangleShape2D_c4eof")
+
+[node name="paddle" type="Area2D" parent="."]
+position = Vector2(145, 295)
+script = ExtResource("5_tdoey")
+
+[node name="paddlec" type="CollisionShape2D" parent="paddle"]
+shape = SubResource("RectangleShape2D_gamba")
+
+[node name="ColorRect" type="ColorRect" parent="paddle/paddlec"]
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+color = Color(0.290196, 1, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="score" type="RichTextLabel" parent="."]
+z_index = 2
+offset_left = 304.0
+offset_top = 16.0
+offset_right = 400.0
+offset_bottom = 176.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "placeholder"
+script = ExtResource("6_sjji2")
+
+[node name="playbg" type="ColorRect" parent="."]
+z_index = -1
+z_as_relative = false
+offset_right = 300.0
+offset_bottom = 300.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="sidebg" type="ColorRect" parent="."]
+z_index = 1
+z_as_relative = false
+offset_left = 300.0
+offset_right = 400.0
+offset_bottom = 304.0
+
+[node name="restart" type="Button" parent="."]
+z_index = 2
+offset_left = 312.0
+offset_top = 200.0
+offset_right = 392.0
+offset_bottom = 280.0
+text = "Restart"
+
+[connection signal="body_entered" from="wall" to="wall" method="on_ball_entered"]
+[connection signal="body_entered" from="ceiling" to="ceiling" method="on_ball_entered"]
+[connection signal="body_entered" from="floor" to="floor" method="on_ball_enter"]
+[connection signal="game_failed" from="floor" to="score" method="on_failed"]
+[connection signal="ball_touched" from="paddle" to="score" method="inc_score"]
+[connection signal="body_entered" from="paddle" to="paddle" method="_on_ball_enter"]
+[connection signal="pressed" from="restart" to="ball" method="reset"]
+[connection signal="pressed" from="restart" to="score" method="reset"]
