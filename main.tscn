@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bldl3hu5pvqsu"]
+[gd_scene load_steps=15 format=3 uid="uid://bldl3hu5pvqsu"]
 
 [ext_resource type="Script" path="res://main.cs" id="1_hsohf"]
-[ext_resource type="Texture2D" uid="uid://dfr4k7gyyd0h0" path="res://icon.svg" id="1_t55sn"]
 [ext_resource type="Script" path="res://wall.cs" id="2_6eo8j"]
 [ext_resource type="Script" path="res://ball.cs" id="3_8jduj"]
+[ext_resource type="Shader" path="res://ball.gdshader" id="4_h5vni"]
 [ext_resource type="Script" path="res://ceiling.cs" id="5_j4hoe"]
 [ext_resource type="Script" path="res://floor.cs" id="6_a6brq"]
 [ext_resource type="Script" path="res://paddle.cs" id="7_8pbfs"]
@@ -13,6 +13,12 @@
 size = Vector2(14, 303.875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irqmu"]
+size = Vector2(16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eh3dr"]
+shader = ExtResource("4_h5vni")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pmic1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4eof"]
 size = Vector2(315, 18)
@@ -40,11 +46,14 @@ position = Vector2(50, 50)
 script = ExtResource("3_8jduj")
 
 [node name="ballShape" type="CollisionShape2D" parent="ball"]
+position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_irqmu")
 
 [node name="Icon" type="Sprite2D" parent="ball/ballShape"]
-scale = Vector2(0.15625, 0.15625)
-texture = ExtResource("1_t55sn")
+material = SubResource("ShaderMaterial_eh3dr")
+position = Vector2(-1.19209e-07, -1.19209e-06)
+scale = Vector2(16, 16)
+texture = SubResource("CanvasTexture_pmic1")
 
 [node name="ceiling" type="Area2D" parent="."]
 script = ExtResource("5_j4hoe")
