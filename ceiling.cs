@@ -6,10 +6,7 @@ public partial class ceiling : Area2D
   {
   }
 
-  public void on_ball_entered(ball ball)
-  {
-    ball.random_y();
-  }
+  public void on_ball_entered(ball ball) => ball.random_y();
 
   public override void _Process(double delta)
   {

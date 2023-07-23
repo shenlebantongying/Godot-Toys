@@ -9,10 +9,7 @@ public partial class floor : Area2D
   {
   }
 
-  public void on_ball_enter(Node ball)
-  {
-    EmitSignal(SignalName.GameFailed);
-  }
+  public void on_ball_enter(Node ball) => EmitSignal(SignalName.GameFailed);
 
   public override void _Process(double delta)
   {

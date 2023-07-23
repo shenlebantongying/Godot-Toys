@@ -7,10 +7,7 @@ public partial class ball : CharacterBody2D
   public float xVelocity = 1;
   public int yDir = 1;
 
-  public void invert_x()
-  {
-    xDir *= -1;
-  }
+  public void invert_x() => xDir *= -1;
 
   public void random_y()
   {
