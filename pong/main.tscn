@@ -119,7 +119,7 @@ text = "Restart"
 
 [connection signal="body_entered" from="wall" to="wall" method="on_ball_entered"]
 [connection signal="body_entered" from="ceiling" to="ceiling" method="on_ball_entered"]
-[connection signal="GameFailed" from="floor" to="score" method="_on_floor_game_failed"]
+[connection signal="GameFailed" from="floor" to="score" method="on_failed"]
 [connection signal="body_entered" from="floor" to="floor" method="on_ball_enter"]
 [connection signal="BallTouched" from="paddle" to="score" method="inc_score"]
 [connection signal="body_entered" from="paddle" to="paddle" method="on_ball_enter"]
