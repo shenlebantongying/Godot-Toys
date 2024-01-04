@@ -1,0 +1,125 @@
+[gd_scene load_steps=31 format=3 uid="uid://chthea4lvsi66"]
+
+[ext_resource type="Shader" path="res://simple.gdshader" id="1_8e31o"]
+[ext_resource type="Shader" path="res://line.gdshader" id="2_r01lx"]
+[ext_resource type="Shader" path="res://rainbow1.gdshader" id="3_20em8"]
+[ext_resource type="Shader" path="res://time.gdshader" id="4_6ur1o"]
+[ext_resource type="Shader" path="res://sin_time.gdshader" id="5_4al5o"]
+[ext_resource type="Shader" path="res://line_mid.gdshader" id="6_enyb0"]
+[ext_resource type="Shader" path="res://sin_wave.gdshader" id="7_ocjdl"]
+[ext_resource type="Shader" path="res://squares.gdshader" id="8_iv738"]
+[ext_resource type="Shader" path="res://loops.gdshader" id="9_sw07d"]
+[ext_resource type="Shader" path="res://rainbow_circle.gdshader" id="10_0yf32"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h6ufw"]
+shader = ExtResource("1_8e31o")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mfipu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p0ub3"]
+shader = ExtResource("2_r01lx")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cq5qs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_moub5"]
+shader = ExtResource("3_20em8")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_js37d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtyws"]
+shader = ExtResource("4_6ur1o")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_k28ee"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f3nc4"]
+shader = ExtResource("5_4al5o")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fpct1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_54g84"]
+shader = ExtResource("6_enyb0")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uqtlu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g204n"]
+shader = ExtResource("7_ocjdl")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nhtvg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6svbd"]
+shader = ExtResource("8_iv738")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_32cpg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hd6r"]
+shader = ExtResource("9_sw07d")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0uqhh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rrtnp"]
+shader = ExtResource("10_0yf32")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yita0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="simple" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_h6ufw")
+scale = Vector2(200, 200)
+texture = SubResource("CanvasTexture_mfipu")
+centered = false
+region_rect = Rect2(0, 54, 200, 346)
+
+[node name="line" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_p0ub3")
+position = Vector2(300, 100)
+scale = Vector2(200, 200)
+texture = SubResource("CanvasTexture_cq5qs")
+
+[node name="rainbow" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_moub5")
+position = Vector2(500, 100)
+scale = Vector2(200, 200)
+texture = SubResource("CanvasTexture_js37d")
+
+[node name="mod_time" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jtyws")
+position = Vector2(100, 300)
+scale = Vector2(200, 200)
+texture = SubResource("CanvasTexture_k28ee")
+
+[node name="sin" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_f3nc4")
+position = Vector2(300, 300)
+scale = Vector2(200, 200)
+texture = SubResource("CanvasTexture_fpct1")
+
+[node name="mid_line" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_54g84")
+position = Vector2(500, 300)
+scale = Vector2(200, 200)
+texture = SubResource("CanvasTexture_uqtlu")
+
+[node name="sin_wave" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_g204n")
+position = Vector2(100, 500)
+scale = Vector2(200, 200)
+texture = SubResource("CanvasTexture_nhtvg")
+
+[node name="squares" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6svbd")
+position = Vector2(300, 500)
+scale = Vector2(200, 200)
+texture = SubResource("CanvasTexture_32cpg")
+
+[node name="loop" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1hd6r")
+position = Vector2(500, 500)
+scale = Vector2(200, 200)
+texture = SubResource("CanvasTexture_0uqhh")
+
+[node name="rainbow_circle" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rrtnp")
+position = Vector2(700, 100)
+scale = Vector2(200, 200)
+texture = SubResource("CanvasTexture_yita0")
