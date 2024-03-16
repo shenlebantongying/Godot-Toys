@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dukxconmxsa5u"]
+
+[ext_resource type="Texture2D" uid="uid://bggh63iigtdy7" path="res://icon.svg" id="1_5ugq2"]
+[ext_resource type="Script" path="res://shooter.gd" id="1_fes08"]
+[ext_resource type="PackedScene" uid="uid://cgoik28uiu2u2" path="res://bullet.tscn" id="2_qbw1g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8gsf"]
+
+[node name="BattleGround" type="Node2D"]
+position = Vector2(105, 87)
+scale = Vector2(3.49526, 3.49526)
+
+[node name="shooter" type="CharacterBody2D" parent="."]
+script = ExtResource("1_fes08")
+bullet = ExtResource("2_qbw1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shooter"]
+shape = SubResource("CircleShape2D_r8gsf")
+
+[node name="Sprite2D" type="Sprite2D" parent="shooter"]
+scale = Vector2(0.140625, 0.140625)
+texture = ExtResource("1_5ugq2")
+
+[node name="marker" type="Marker2D" parent="shooter"]
+position = Vector2(8.9407e-07, 8.9407e-07)
+scale = Vector2(0.1, 0.1)
