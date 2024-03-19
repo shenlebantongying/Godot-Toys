@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqwjrlrr14fh3"]
+
+[ext_resource type="Script" path="res://MyObj.cs" id="1_7ivk2"]
+[ext_resource type="Texture2D" uid="uid://bx5bv6nxnlpby" path="res://icon.svg" id="1_7lgik"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7njo1"]
+size = Vector2(129, 127)
+
+[node name="Node2D" type="Area2D"]
+scale = Vector2(0.241942, 0.241942)
+script = ExtResource("1_7ivk2")
+
+[node name="area" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_7njo1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7lgik")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

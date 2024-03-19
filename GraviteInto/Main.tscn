@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6jqecuycovuh"]
+
+[ext_resource type="Script" path="res://Main.cs" id="1_pvuev"]
+[ext_resource type="Shader" path="res://marker.gdshader" id="2_1lib4"]
+[ext_resource type="Texture2D" uid="uid://bx5bv6nxnlpby" path="res://icon.svg" id="2_iwlvp"]
+[ext_resource type="Script" path="res://Marker.cs" id="2_uhurh"]
+[ext_resource type="Script" path="res://my_text.gd" id="5_def45"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lpfo2"]
+shader = ExtResource("2_1lib4")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d38t5"]
+size = Vector2(16.1798, 16.3692)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pvuev")
+
+[node name="marker" type="Area2D" parent="."]
+position = Vector2(128, 128)
+script = ExtResource("2_uhurh")
+
+[node name="Sprite2D" type="Sprite2D" parent="marker"]
+material = SubResource("ShaderMaterial_lpfo2")
+position = Vector2(-2.5034e-06, -3.09944e-06)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_iwlvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="marker"]
+position = Vector2(0, 1.52588e-05)
+scale = Vector2(1.97778, 1.95489)
+shape = SubResource("RectangleShape2D_d38t5")
+
+[node name="myText" type="Label" parent="."]
+offset_left = 1020.0
+offset_top = 10.0
+offset_right = 1136.0
+offset_bottom = 50.0
+text = "Score: 0"
+script = ExtResource("5_def45")
+
+[connection signal="NewScore" from="marker" to="myText" method="on_new_score_arrived"]
+[connection signal="area_entered" from="marker" to="marker" method="_on_area_entered"]
