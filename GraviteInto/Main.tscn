@@ -38,5 +38,4 @@ offset_bottom = 50.0
 text = "Score: 0"
 script = ExtResource("5_def45")
 
-[connection signal="NewScore" from="marker" to="myText" method="on_new_score_arrived"]
 [connection signal="area_entered" from="marker" to="marker" method="_on_area_entered"]

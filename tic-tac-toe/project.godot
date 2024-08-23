@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Shader Toys"
-run/main_scene="res://frags.tscn"
+config/name="tic-tac-toe"
+run/main_scene="res://scratch/click.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
-[dotnet]
+[display]
 
-project/assembly_name="Shader Toys"
+window/size/viewport_width=800
+window/size/viewport_height=600
