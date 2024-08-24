@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1g5iic01j6je"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ryrtp"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ryrtp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 610.0
+offset_bottom = 818.0
+
+[node name="MainGrid" type="GridContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 2
+columns = 3
+
+[node name="RestartBtn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Restart"
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Click to play."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="oneSideWin" from="." to="." method="_on_one_side_win"]
+[connection signal="pressed" from="VBoxContainer/RestartBtn" to="." method="_on_restart_btn_pressed"]
